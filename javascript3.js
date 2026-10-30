@@ -14,4 +14,6 @@ catolicismo.addEventListener('click', function(){
     //esta es la suposicion que habia puest antes : const imagenes = document.getElementById("CambioImagenes").src = "../img/image3.png";
     //esta es la version que me dice la IA
     const CambioImagenes = document.getElementById('CambioImagenes');
-CambioImagenes.src = "../img/image3.png";
+CambioImagenes.addEventListener('click', function(){
+    CambioImagenes.src = "../img/image3.png";
+})
