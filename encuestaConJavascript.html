@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>encuesta</title>
+</head>
+<body>
+    <h1>Testeemos tus nuevos conocimientos</h1>
+<!--pregunta 1-->
+    <h2>1. ¿Dónde nació el Beato?</h2>
+        <input type="radio" name="p1" value="a"> Peralta de la Sal<br>
+        <input type="radio" name="p1" value="b"> Calamocha<br>
+        <input type="radio" name="p1" value="c"> Pamplona<br>
+<!--pregunta 2-->
+    <h2>2. ¿Qué papel en la Iglesia tuvo?</h2>
+        <input type="radio" name="p2" value="a"> Papa<br>
+        <input type="radio" name="p2" value="b"> Obispo<br>
+        <input type="radio" name="p2" value="c"> Maestro de Novicios<br>
+<!--pregunta 3-->    
+    <h2>3. ¿Durante qué años estuvo en Buenos Aires?</h2>
+        <input type="radio" name="p3" value="a"> Desde 1919 a 1922<br>
+        <input type="radio" name="p3" value="b"> Desde 1930 a 1936<br>
+        <input type="radio" name="p3" value="c"> Desde 1917 a 1921<br>
+<!--pregunta 4-->
+    <h2>4. ¿Cómo fallece Dionisio Pamplona?</h2>
+        <input type="radio" name="p4" value="a"> Por una bala<br>
+        <input type="radio" name="p4" value="b"> Por múltimples balas<br>
+        <input type="radio" name="p4" value="c"> Por hambre<br>
+<!--pregunta 5-->
+    <h2>5. ¿Cuándo es beatificado?</h2>
+        <input type="radio" name="p5" value="a"> En 1995<br>
+        <input type="radio" name="p5" value="b"> En 1922<br>
+        <input type="radio" name="p5" value="c"> En 1936<br>
+<br>
+<button id="comprobar" type="button">Comprobar</button>
+<button id="reiniciar" type="button">Reiniciar</button>
+<p id="resultado"></p>
+<script>
+document.getElementById("comprobar").addEventListener("click", function() {
+let puntaje = 0;
+let p1 = document.querySelector('input[name="p1"]:checked');
+let p2 = document.querySelector('input[name="p2"]:checked');
+let p3 = document.querySelector('input[name="p3"]:checked');
+let p4 = document.querySelector('input[name="p4"]:checked');
+let p5 = document.querySelector('input[name="p5"]:checked');
+if (!p1 || !p2 || !p3 || !p4 || !p5) {
+document.getElementById("resultado").innerHTML =
+"Debes responder las cuatro preguntas.";
+return;
+}
+// Respuestas correctas
+if (p1.value === "b") puntaje++;
+if (p2.value === "c") puntaje++;
+if (p3.value === "a") puntaje++;
+if (p4.value === "b") puntaje++;
+if (p5.value === "a") puntaje++;
+let mensaje = "<h3>Resultado: " + puntaje + "/5 puntos</h3>";
+if (puntaje === 5) {
+mensaje += "¡Felicitaciones! Ahora conoces la historia del Beato Dionisio Pamplona";
+} else if (puntaje === 4) {
+mensaje += "¡Muy bien! Solo te equivocaste en una pregunta.";
+} else {
+mensaje += "¡Inténtalo de nuevo!.";
+}
+document.getElementById("resultado").innerHTML = mensaje;
+});
+document.getElementById("reiniciar").addEventListener("click", function() {
+let opciones = document.querySelectorAll('input[type="radio"]');
+for (let opcion of opciones) {
+opcion.checked = false;
+}
+document.getElementById("resultado").innerHTML = "";
+});
+</script>
+</body>
+</html>
