@@ -1,3 +1,5 @@
+  // constantes para cambiar el fondo de la pantalla al hacer clic
+  
   const MUERTE = document.getElementById('btnCambioRojo');
 MUERTE.addEventListener('click', function(){
     document.body.style.backgroundColor = '#f52c2c';
@@ -11,9 +13,7 @@ HOY.addEventListener('click', function(){
 catolicismo.addEventListener('click', function(){
     document.body.style.backgroundColor = '#67ea';
 })
-    //esta es la suposicion que habia puest antes : const imagenes = document.getElementById("CambioImagenes").src = "../img/image3.png";
-    //esta es la version que me dice la IA
-    const CambioImagenes = document.getElementById('CambioImagenes');
-CambioImagenes.addEventListener('click', function(){
-    CambioImagenes.src = "../img/image3.png";
-})
+
+// para la encuesta
+     const btnTest = document.getElementById('btntest');
+
